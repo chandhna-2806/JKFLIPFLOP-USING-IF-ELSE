@@ -36,18 +36,39 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 
 **PROGRAM**
-![WhatsApp Image 2024-12-15 at 10 00 15_6486fbbf](https://github.com/user-attachments/assets/23deea37-5be0-440e-b672-68b1a34b572f)
+module jk_ff (j, k, clk, rst, q);
+  input j, k, clk, rst;
+  output reg q;
+  always @(posedge clk or posedge rst) begin
+    if (rst)
+      q <= 0; // Reset the flip-flop
+    else if (j == 0 && k == 0)
+      q <= q; // No change
+    else if (j == 0 && k == 1)
+      q <= 0; // Reset
+    else if (j == 1 && k == 0)
+      q <= 1; // Set
+    else if (j == 1 && k == 1)
+      q <= ~q; // Toggle
+  end
 
 
-. Developed by: 24900265
+. Developed by: A CHANDHNA
+24900265
 
 **RTL LOGIC FOR FLIPFLOPS**
-![WhatsApp Image 2024-12-15 at 10 00 14_654bd0b2](https://github.com/user-attachments/assets/4a58c6a3-0cdd-469c-b5e7-b32bc083de81)
+
+![7 rtl](https://github.com/user-attachments/assets/c8f00cbf-e2ce-426a-a37d-01797866daad)
+
 
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-![WhatsApp Image 2024-12-15 at 10 00 14_6f113cdc](https://github.com/user-attachments/assets/0ba6a38a-f6a8-4552-9b7a-630df658b885)
+
+
+![7 td](https://github.com/user-attachments/assets/62380954-65ed-49eb-a092-5c9954e89f98)
+
 
 
 **RESULTS**
+Thus JK flip flop is implemented successfully.
